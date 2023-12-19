@@ -24,7 +24,9 @@ export const CurrentUserProvider = ({children}) => {
         console.log(err)
       }
     } 
+    const handleSignOut = async() => {
      
+    }
     useEffect(() => {
       handleMount()
     }, []);
