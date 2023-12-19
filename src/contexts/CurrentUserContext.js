@@ -24,6 +24,7 @@ export const CurrentUserProvider = ({children}) => {
         console.log(err)
       }
     } 
+     
     useEffect(() => {
       handleMount()
     }, []);
