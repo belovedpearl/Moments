@@ -6,6 +6,7 @@ import './api/axiosDefaults'
 import SignUpForm from './pages/auth/SignUpForm';
 import SignInForm from './pages/auth/SignInForm';
 import PostCreateForm from './pages/posts/PostCreateForm';
+import PostPage from './pages/posts/PostPages';
 // import { createContext, useEffect, useState } from 'react';
 // import axios from 'axios';
 // the above moved to CurrentUserContext.js
@@ -44,6 +45,7 @@ function App() {
                 <Route exact path='/signin' render={ () => <SignInForm/> } />
                 <Route exact path='/signup' render={ () => <SignUpForm/> } />
                 <Route exact path='/posts/create' render={ () => <PostCreateForm/> } />
+                <Route exact path="/posts/:id" render={() => <PostPage />} />
                 <Route render={ () => <p>Page not Found!</p> }/>
               </Switch>
               
