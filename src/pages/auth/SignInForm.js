@@ -13,10 +13,12 @@ import appStyles from "../../App.module.css";
 import axios from "axios";
 // import { SetCurrentUserContext } from "../../App";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function SignInForm() {
   // const setCurrentUser = useContext(SetCurrentUserContext) replaced by the below
   const setCurrentUser = useSetCurrentUser()
+  useRedirect('loggedIn')
 //   Add your component logic here
    const [signInData, setSignInData] = useState({
     username: '',
@@ -38,7 +40,8 @@ function SignInForm() {
     try {
       const {data} = await axios.post("/dj-rest-auth/login/", signInData);
       setCurrentUser(data.user)
-      history.push("/");
+      // history.push("/"); replaced with the below code
+      history.goBack();
     } catch (err) {
         setErrors(err.response?.data);
     }
