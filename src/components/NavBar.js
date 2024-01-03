@@ -32,8 +32,9 @@ const NavBar = () => {
   const setCurrentUser = useSetCurrentUser()
 
   const handleSignOut = async () => {
+      // e.preventDefault()
       try{
-          await axios.post("/dj-rest-auth/logout/");
+          await axios.post("/dj-rest-auth/logout");
           setCurrentUser(null)
           removeTokenTimestamp()
       }catch (err){
